@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="UTF-8">
+		<title>strona |	autor :	jan m.</title>
+				<style>
+						body {
+						font-family: Arial, sans-serif;
+						max-width: 600px;
+						margin: 20px auto;
+						padding 10px;
+						background-color: #f0f0f0;
+					}
+						h1 {
+							text-align: center;
+						}
+						#comments {
+								margin-top: 20px;
+								border-top 1px solid #ccc;
+								padding-top 10px;
+						}
+						.comment {
+								background-color: #fff;
+								padding: 10px;
+								margin-bottom: 10px;
+								border-radius: 5px;
+						}
+						button {
+								padding: 5px 10px;
+						}
+				</style>
+		</head>
+		<body>
+				<h1>komentarze</h1>
+				
+				<form id="commentForm">
+						<input type="text" id="name"
+			placeholder="Imię" required 
+			autocomplete="off" style="width:100%; padding:5px;
+			margin-bottom:5px;">
+					<textarea id="message"
+			placeholder="komentarz" required
+			autocomplete="off" style="width:100%; 
+			padding:5px;" rows="4"></textarea>
+						<button type="submit"
+			style="margin-top:5px;">dodaj komentarz</button>
+					</form>
+					
+					<div id="comments">
+							<h3>historia komentarzy:</h3>
+					</div>
+					
+					<script>
+							window.onload = function() {
+							const form =
+			document.getElementById("commentForm");
+							const commentsDiv =
+			document.getElementById("comments");
+			
+					form.addEventListener("submit",
+			function(e) {
+							e.preventDefault();
+						
+						const name =
+			document.getElementById("name").value.trim();
+						const message =
+			document.getElementById("message").value.trim();
+								if(name === "" || message === "") {
+								alert("proszę wprowadzić imię i komentarz!");
+																	return;
+																}
+			
+						const commentBlock =
+			document.createElement("div");
+						commentBlock.className =
+			"comment";
+						commentBlock.innerHTML =
+			"<strong>" + name + "</strong>:<br>" + message;
+			
+			
+			commentsDiv.appendChild(commentBlock);
+			
+						form.reset();
+					});
+				};
+				</script>
+		</body>
+	</html>
+					
+			
+			
